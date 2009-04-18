@@ -1,0 +1,5 @@
+getscript.vba: call delete('/home/sawa/.vim/plugin/getscriptPlugin.vim')|call delete('/home/sawa/.vim/autoload/getscript.vim')|call delete('/home/sawa/.vim/GetLatest/GetLatestVimScripts.dist')|call delete('/home/sawa/.vim/doc/pi_getscript.txt')
+netrw.vba: call delete('/home/sawa/.vim/plugin/netrwPlugin.vim')|call delete('/home/sawa/.vim/autoload/netrw.vim')|call delete('/home/sawa/.vim/autoload/netrwFileHandlers.vim')|call delete('/home/sawa/.vim/autoload/netrwSettings.vim')|call delete('/home/sawa/.vim/doc/pi_netrw.txt')|call delete('/home/sawa/.vim/syntax/netrw.vim')
+rails.vba: call delete('/home/sawa/.vim/autoload/rails.vim')|call delete('/home/sawa/.vim/plugin/rails.vim')|call delete('/home/sawa/.vim/doc/rails.txt')
+Align.vba: call delete('/home/sawa/.vim/plugin/AlignPlugin.vim')|call delete('/home/sawa/.vim/plugin/AlignMapsPlugin.vim')|call delete('/home/sawa/.vim/plugin/cecutil.vim')|call delete('/home/sawa/.vim/doc/Align.txt')|call delete('/home/sawa/.vim/autoload/Align.vim')|call delete('/home/sawa/.vim/autoload/AlignMaps.vim')
+cecutil.vba: call delete('/home/sawa/.vim/plugin/cecutil.vim')|call delete('/home/sawa/.vim/doc/cecutil.txt')
