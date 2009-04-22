@@ -137,7 +137,7 @@ autocmd FileType ruby,eruby set tabstop=2 shiftwidth=2
 " changelog
 autocmd BufNew,BufRead *.changelog set filetype=changelog
 let g:changelog_timeformat="%Y-%m-%d"
-let g:changelog_username="Seiji Sawayanagi"
+let g:changelog_username="mostlyfine@gmail.com"
 
 " action script
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
