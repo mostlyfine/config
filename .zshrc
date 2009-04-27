@@ -110,7 +110,7 @@ alias ls="ls --color"
 alias ll="ls -l"
 alias vv="vim ~/.vimrc"
 alias vz="vim ~/.zshrc"
-alias vl="vim ~/changelog"
+alias vc="vim ~/changelog"
 alias g="git"
 
 ## for rails
