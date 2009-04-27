@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'pp'
 require 'wirble'
-require 'what_methods'
 require 'irb/completion'
 
 IRB.conf[:SAVE_HISTORY] = 1000
