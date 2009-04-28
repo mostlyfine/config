@@ -97,6 +97,14 @@ vnoremap k gk
 " 選択文字で検索
 vnoremap * y/<C-r>0<CR>
 
+" 検索語を画面中央に
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
 " 検索文字のハイライト/アンハイライト
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 nnoremap / :<C-u>set hlsearch<Return>/
