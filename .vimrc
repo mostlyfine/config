@@ -72,8 +72,7 @@ set ignorecase                      " 大文字小文字無視
 set smartcase                       " 大文字ではじめたら大文字小文字無視しない
 set incsearch                       " インクリメンタルサーチ
 set hlsearch                        " 検索文字をハイライト
-set grepprg=internal                " grepに内部のvimgrepを使用する
-autocmd QuickfixCmdPost vimgrep cw  " vimgrep時にマッチしたファイルがあったらウィンドウを開く
+set grepprg=git\ grep\ -n\ $*       " grepにgit grepを使用する
 
 " backup
 set backup                          " バックアップ有効
@@ -175,7 +174,7 @@ autocmd InsertEnter * highlight StatusLine ctermbg=red guibg=red
 autocmd InsertLeave * highlight StatusLine ctermbg=darkgray guibg=darkgray
 
 " 自動的にQuickFixリストを表示する
-autocmd QuickfixCmdPost make, grep, grepadd, vimgrep, vimgrepadd
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 
 " 全角スペースを表示
 highlight ZenkakuSpace ctermbg=red guibg=red
