@@ -30,7 +30,7 @@ if &term =~ "xterm-256color"
   " 256 colorの時のカラースキーマ
   set t_Co=256
   colorscheme xoria256
-  set background=dark
+  set background=light
   hi Pmenu ctermbg=lightgray
   hi PmenuSel ctermbg=6
 else
