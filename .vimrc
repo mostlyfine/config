@@ -100,6 +100,12 @@ vnoremap k gk
 " 選択文字で検索
 vnoremap * y/<C-r>0<CR>
 
+" help
+nnoremap <C-h> :<C-u>help<Space>
+
+" grep
+nnoremap <C-g> :<C-u>vimgrep<Space>
+
 " 検索語を画面中央に
 nmap n nzz
 nmap N Nzz
