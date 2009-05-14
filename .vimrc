@@ -180,6 +180,10 @@ autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 highlight ZenkakuSpace ctermbg=red guibg=red
 match ZenkakuSpace /　/
 
+" 行末のスペースを表示
+highlight WhiteSpaceEOL ctermbg=red guibg=red
+match WhiteSpaceEOL /\S\@<=\s\+$/
+
 " plugin ------------------------------------------------------------
 
 " vim-ruby.vim
