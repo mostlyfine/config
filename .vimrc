@@ -105,6 +105,7 @@ nnoremap <C-h> :<C-u>help<Space>
 
 " grep
 nnoremap <C-g> :<C-u>vimgrep<Space>
+command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog
 
 " 検索語を画面中央に
 nmap n nzz
