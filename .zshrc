@@ -5,6 +5,7 @@ compinit
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vi
 export CTAGS="--langmap=RUBY:.rb.yml -R"
+export PATH=$PATH:$HOME/bin
 # プロンプトの設定
 PROMPT="%% "
 RPROMPT="[%/]"
