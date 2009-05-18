@@ -100,12 +100,17 @@ vnoremap k gk
 " 選択文字で検索
 vnoremap * y/<C-r>0<CR>
 
+" visual mode word move
+vnoremap v w
+
 " help
-nnoremap <C-h> :<C-u>help<Space>
+nnoremap <C-h> :help<Space>
 
 " grep
-nnoremap <C-g> :<C-u>vimgrep<Space>
-command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog
+nnoremap <C-g> :vimgrep<Space>
+
+" changelog grep
+command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog | cw
 
 " 検索語を画面中央に
 nmap n nzz
@@ -143,6 +148,10 @@ cnoremap <C-b> <Left>
 inoremap <C-k> <C-o>D
 inoremap <C-u> <C-o>dd
 
+inoremap <F5> <ESC>
+inoremap <F6> <ESC>
+inoremap <F7> <ESC>
+inoremap <F8> <ESC>
 
 " filetype ----------------------------------------------------------
 filetype on
