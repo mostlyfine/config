@@ -115,7 +115,7 @@ alias vc="vim ~/changelog"
 alias g="git"
 
 ## for rails
-alias sc="./script/console"
+alias sc="./script/console -s"
 alias ss="./script/server"
 alias sg="./script/generate"
 

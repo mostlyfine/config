@@ -148,6 +148,11 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
+cnoremap <C-d> <Del>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <Esc><C-b> <S-Left>
+cnoremap <Esc><C-f> <S-Right>
 inoremap <C-k> <C-o>D
 inoremap <C-u> <C-o>dd
 
@@ -162,7 +167,11 @@ filetype indent on  " ファイルタイプによるインデント設定
 filetype plugin on  " ファイルタイプごとのプラグイン読み込み
 
 " ruby
-autocmd FileType ruby,eruby set tabstop=2 shiftwidth=2
+autocmd FileType ruby,eruby setlocal tabstop=2 shiftwidth=2
+autocmd FileType ruby,eruby setlocal makeprg=ruby\ -c\ %
+autocmd FileType ruby,eruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType ruby,eruby setlocal formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
+autocmd FileType ruby,eruby setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
 
 " changelog
 autocmd BufNew,BufRead *.changelog set filetype=changelog
@@ -182,9 +191,14 @@ let php_noShortTags=1
 let php_folding=0
 autocmd BufNewFile,BufRead *.thml set filetype=php
 autocmd BufNewFile,BufRead *.ctp set filetype=php
+autocmd FileType php setlocal makeprg=php\ -l\ %
+autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+
+" cucumber
+autocmd BufNewFile,BufRead *.feature set filetype=ruby
 
 " yaml
-autocmd FileType yaml set shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 " other -------------------------------------------------------------
 
@@ -229,6 +243,6 @@ let g:rails_default_database="mysql"
 let git_diff_spawn_mode=1               " windowを横に分割
 
 " windows mount
-autocmd BufNewFile,BufRead /mnt/* set nofsync
-autocmd BufNewFile,BufRead /opt/* set nofsync
+"autocmd BufNewFile,BufRead /mnt/* set nofsync
+"autocmd BufNewFile,BufRead /opt/* set nofsync
 
