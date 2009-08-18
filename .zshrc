@@ -39,7 +39,7 @@ case "${TERM}" in
 esac
 
 # カラー表示
-autoload coloes
+autoload colors
 case "${TERM}" in
     kterm*|xterm*)
         export LSCOLORS=exfxcxdxbxegedabagacad
