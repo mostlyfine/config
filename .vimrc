@@ -294,7 +294,6 @@ autocmd BufRead,BufNewFile *.feature call s:SetupCucumberVim()
 function! BufGrep(word)
   cexpr '' " quickfixを空に
   silent exec ':bufdo | try | vimgrepadd ' . a:word . ' % | catch | endtry'
-  silent cwin
 endfunction
 command! -nargs=1 BufGrep :call BufGrep(<f-args>)
 
