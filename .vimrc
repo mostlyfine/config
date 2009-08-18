@@ -287,8 +287,16 @@ function s:SetupRspecVim()
 endfunction
  
 " TODO script localにする
-au BufRead,BufNewFile *_spec.rb call s:SetupRspecVim()
-au BufRead,BufNewFile *.feature call s:SetupCucumberVim()
+autocmd BufRead,BufNewFile *_spec.rb call s:SetupRspecVim()
+autocmd BufRead,BufNewFile *.feature call s:SetupCucumberVim()
+
+" バッファ内grep
+function! BufGrep(word)
+  cexpr '' " quickfixを空に
+  silent exec ':bufdo | try | vimgrepadd ' . a:word . ' % | catch | endtry'
+  silent cwin
+endfunction
+command! -nargs=1 BufGrep :call BufGrep(<f-args>)
 
 " plugin ------------------------------------------------------------
 
