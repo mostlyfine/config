@@ -112,9 +112,6 @@ nnoremap <C-h> :help<Space>
 " grep
 nnoremap <C-g> :vimgrep<Space>
 
-" changelog grep
-command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog | cw
-
 " 検索語を画面中央に
 nmap n nzz
 nmap N Nzz
@@ -160,6 +157,40 @@ inoremap <F5> <ESC>
 inoremap <F6> <ESC>
 inoremap <F7> <ESC>
 inoremap <F8> <ESC>
+
+" 日付入力
+inoremap <expr> ,df strftime("%Y-%m-%dT%H:%M:%S")
+inoremap <expr> ,dd strftime("%Y-%m-%d")
+
+" 最後に変更したテキストの選択
+nnoremap gc `[v`]
+vnoremap gc :<C-u>normal gc<Enter>
+onoremap gc :<C-u>normal gc<Enter>
+
+" command -----------------------------------------------------------
+
+" changelog grep
+command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog | cw
+
+" バッファ内grep
+function! BufGrep(word)
+  cexpr '' " quickfixを空に
+  silent exec ':bufdo | try | vimgrepadd ' . a:word . ' % | catch | endtry'
+endfunction
+command! -nargs=1 BufGrep :call BufGrep(<f-args>)
+
+" ファイルエンコーディング指定再読み込み
+command! Cp932 edit ++enc=cp932
+command! Utf8 edit ++enc=utf-8
+command! Euc edit ++enc=euc-jp
+
+" cdpathを考慮した引数補完
+command! -complete=customlist, CompleteCD -nargs=? CD cd <args>
+function! CompleteCD(arglead, cmdline, cursorpos)
+  let pat = join(split(a:cmdline, '\s', !0)[1:], ' '), '*/'
+  return split(globpath(&cdpath, pat), "\n")
+endfunction
+
 
 " filetype ----------------------------------------------------------
 filetype on
