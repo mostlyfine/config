@@ -211,6 +211,10 @@ let g:changelog_username="mostlyfine@gmail.com"
 
 " action script
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd FileType actionscript setlocal dictionary=$HOME/.vim/dict/actionscript3.dict
+
+" java
+autocmd FileType java setlocal dictionary=$HOME/.vim/dict/j2se14.dict
 
 " git
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=git
@@ -224,6 +228,7 @@ autocmd BufNewFile,BufRead *.thml set filetype=php
 autocmd BufNewFile,BufRead *.ctp set filetype=php
 autocmd FileType php setlocal makeprg=php\ -l\ %
 autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType php setlocal dictionary=$HOME/.vim/dict/php.dict
 
 " cucumber
 autocmd BufNewFile,BufRead *.feature set filetype=ruby
