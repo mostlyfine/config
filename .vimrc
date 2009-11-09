@@ -245,13 +245,11 @@ autocmd InsertLeave * highlight StatusLine ctermbg=darkgray guibg=darkgray
 " 自動的にQuickFixリストを表示する
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 
-" 全角スペースを表示
-highlight ZenkakuSpace ctermbg=red guibg=red
-match ZenkakuSpace /　/
-
-" 行末のスペースを表示
-highlight WhiteSpaceEOL ctermbg=red guibg=red
-match WhiteSpaceEOL /\S\@<=\s\+$/
+" 全角/行末スペースを表示
+scriptencoding utf-8
+highlight IgnoreSpace ctermbg=red guibg=red
+autocmd Colorscheme * highlight IgnoreSpace ctermbg=red guibg=red
+autocmd VimEnter,WinEnter * match IgnoreSpace /\s\+$\|　/
 
 " plugin ------------------------------------------------------------
 
