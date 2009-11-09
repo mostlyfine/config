@@ -75,8 +75,8 @@ set hlsearch                        " 検索文字をハイライト
 set grepprg=git\ grep\ -n\ $*       " grepにgit grepを使用する
 
 " backup
-set backup                          " バックアップ有効
-set backupdir=$HOME/.vim-backup     " バックアップディレクトリ指定
+set nobackup                        " バックアップ無効
+"set backupdir=$HOME/.vim-backup     " バックアップディレクトリ指定
 
 " menu / complation
 set wildmenu            " コマンド補完メニューを表示
