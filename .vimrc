@@ -85,7 +85,7 @@ set history=1000        " コマンドの履歴数
 set complete+=k         " 補完に辞書ファイル追加
 
 " help
-helptags $HOME/.vim/doc
+helptags $VIM/doc
 set helplang=ja,en      " ヘルプの検索順序
 
 " keymap ------------------------------------------------------------
