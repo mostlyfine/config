@@ -85,14 +85,14 @@ set history=1000        " コマンドの履歴数
 set complete+=k         " 補完に辞書ファイル追加
 
 " help
-helptags $VIM/doc
+helptags $HOME/.vim/doc
 set helplang=ja,en      " ヘルプの検索順序
 
 " keymap ------------------------------------------------------------
 imap <C-j> <esc>
 
 " ESC押したときに自動的に IME OFF
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+inoremap <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
 
 " 行単位で移動
 nnoremap j gj
