@@ -76,7 +76,6 @@ set grepprg=git\ grep\ -n\ $*       " grepにgit grepを使用する
 
 " backup
 set nobackup                        " バックアップ無効
-"set backupdir=$HOME/.vim-backup     " バックアップディレクトリ指定
 
 " menu / complation
 set wildmenu            " コマンド補完メニューを表示
@@ -85,7 +84,7 @@ set history=1000        " コマンドの履歴数
 set complete+=k         " 補完に辞書ファイル追加
 
 " help
-helptags $HOME/.vim/doc
+helptags $VIMRUNTIME/doc
 set helplang=ja,en      " ヘルプの検索順序
 
 " keymap ------------------------------------------------------------
@@ -211,10 +210,10 @@ let g:changelog_username="mostlyfine@gmail.com"
 
 " action script
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd FileType actionscript setlocal dictionary=$HOME/.vim/dict/actionscript3.dict
+autocmd FileType actionscript setlocal dictionary=$VIMRUNTIME/dict/actionscript3.dict
 
 " java
-autocmd FileType java setlocal dictionary=$HOME/.vim/dict/j2se14.dict
+autocmd FileType java setlocal dictionary=$VIMRUNTIME/dict/j2se14.dict
 
 " git
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=git
@@ -228,7 +227,7 @@ autocmd BufNewFile,BufRead *.thml set filetype=php
 autocmd BufNewFile,BufRead *.ctp set filetype=php
 autocmd FileType php setlocal makeprg=php\ -l\ %
 autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd FileType php setlocal dictionary=$HOME/.vim/dict/php.dict
+autocmd FileType php setlocal dictionary=$VIMRUNTIME/dict/php.dict
 
 " cucumber
 autocmd BufNewFile,BufRead *.feature set filetype=ruby
