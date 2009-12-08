@@ -171,13 +171,6 @@ onoremap gc :<C-u>normal gc<Enter>
 " changelog grep
 command! -nargs=1 ChangeLogGrep vimgrep /<args>/j ~/changelog | cw
 
-" バッファ内grep
-function! BufGrep(word)
-  cexpr '' " quickfixを空に
-  silent exec ':bufdo | try | vimgrepadd ' . a:word . ' % | catch | endtry'
-endfunction
-command! -nargs=1 BufGrep :call BufGrep(<f-args>)
-
 " ファイルエンコーディング指定再読み込み
 command! Cp932 edit ++enc=cp932
 command! Utf8 edit ++enc=utf-8
