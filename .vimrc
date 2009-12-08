@@ -258,9 +258,17 @@ let g:rubycomplete_classes_in_global=1  " global classもomni補完
 let g:rubycomplete_rails=1              " railsのメソッド名もomni補完
 
 " fuzzyfinder.vim
-nmap fb :FuzzyFinderBuffer<CR>
-nmap ff :FuzzyFinderFile<CR>
-nmap fm :FuzzyFinderMruFile<CR>
+nmap fb :FufBuffer<CR>
+nmap ff :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
+nmap fa :FufFile **/<CR>
+nmap fm :FufMruFile<CR>
+nmap fl :FufLine<CR>
+nmap fq :FuxQuickfix<CR>
+
+let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp'
+let g:fuf_modesDisable = ['mrucmd']
+let g:fuf_mrufile_maxItem = 10000
+let g:fuf_enumerationLimi = 20
 
 " buftabs.vim
 let g:buftabs_only_basename=1           " バッファタブにファイル名のみ表示
