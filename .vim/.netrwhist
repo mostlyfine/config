@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/sawayanagi/src/quickfixj/trunk/core/src/main'
+let g:netrw_dirhist_2='/home/sawayanagi/src/quickfixj/trunk/core/src/main/java'
+let g:netrw_dirhist_3='/home/sawayanagi/src/quickfixj/trunk/core/src/main/java/quickfix'
+let g:netrw_dirhist_4='/home/sawayanagi/src/quickfixj/trunk/core/src/main/java/quickfix/field'
+let g:netrw_dirhist_5='/home/sawayanagi/src/quickfixj/trunk/core/src/main/java/quickfix'
+let g:netrw_dirhist_6='/home/sawayanagi/src/quickfixj/trunk/core/src/main/java/quickfix/codegen'
