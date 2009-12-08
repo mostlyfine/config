@@ -5,7 +5,11 @@ set nocompatible
 " status line
 set laststatus=2  " 常にステータスラインを表示
 set cmdheight=2  " コマンドラインで利用する行数
-set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
+"set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
+
+" buftabs.vim対応ステータスライン
+set statusline=%{g:buftabs_list}%=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=\ %c:%l
+
 
 " edit
 set autoread                    " 他で書き換えられたら自動で再読み込み
