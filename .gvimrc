@@ -15,6 +15,10 @@ elseif has('gui_gnome')
   lang ja_JP.UTF-8
 endif
 
+" keymap --------------------------------------------------
+" ESC押したときに自動的に IME OFF
+inoremap <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
+
 " window --------------------------------------------------
 set guioptions-=m         " メニュー非表示
 set guioptions-=T         " ツールバー非表示

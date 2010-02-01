@@ -90,9 +90,6 @@ set helplang=ja,en      " ヘルプの検索順序
 " keymap ------------------------------------------------------------
 imap <C-j> <esc>
 
-" ESC押したときに自動的に IME OFF
-inoremap <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
-
 " 行単位で移動
 nnoremap j gj
 nnoremap k gk
