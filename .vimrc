@@ -194,19 +194,19 @@ autocmd FileType ruby,eruby setlocal formatoptions-=r " 挿入モードで改行
 autocmd FileType ruby,eruby setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
 
 " changelog
-autocmd BufNew,BufRead *.changelog set filetype=changelog
+autocmd BufNew,BufRead *.changelog setlocal filetype=changelog
 let g:changelog_timeformat="%Y-%m-%d"
 let g:changelog_username="mostlyfine@gmail.com"
 
 " action script
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd BufNewFile,BufRead *.as setlocal filetype=actionscript
 autocmd FileType actionscript setlocal dictionary=$HOME/.vim/dict/actionscript3.dict
 
 " java
 autocmd FileType java setlocal dictionary=$HOME/.vim/dict/j2se14.dict
 
 " git
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=git
+autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal filetype=git
 
 " php
 let php_sql_query=1
