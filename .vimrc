@@ -28,19 +28,19 @@ set noruler                     " ルーラーを表示しない
 set formatoptions+=mM           " テキスト挿入中の自動折り返しを日本語に対応
 set shellslash                  " ディレクトリの区切り文字に/指定
 
-if &term =~ "xterm-256color"
+"if &term =~ "xterm-256color"
   " 256 colorの時のカラースキーマ
   set t_Co=256
   colorscheme xoria256
   set background=light
   hi Pmenu ctermbg=lightgray
   hi PmenuSel ctermbg=6
-else
+"else
   " デフォルトのカラースキーマ
-  colorscheme torte
-  hi Pmenu ctermbg=4
-  hi PmenuSel ctermbg=1
-endif
+"  colorscheme torte
+"  hi Pmenu ctermbg=4
+"  hi PmenuSel ctermbg=1
+"endif
 
 " Explore
 let g:netrw_hide=1                " 非表示
