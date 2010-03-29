@@ -11,6 +11,7 @@ set statusline=[%L]\ %t%r%m%=\ %{'['.(&fenc!=''?&fenc:&enc).']'}\ %c:%l
 set autoread                    " 他で書き換えられたら自動で再読み込み
 set hidden                      " 編集中でもほかのファイルを開けるようにする
 set backspace=indent,eol,start  " バックスペースでインデントや改行を削除
+set confirm                     " 変更バッファを保存するか確認
 
 " display
 syntax on
