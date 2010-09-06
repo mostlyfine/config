@@ -276,6 +276,9 @@ let g:rails_default_database="mysql"
 " git-commit.vim
 let git_diff_spawn_mode=1               " windowを横に分割
 
+" neocomplcache
+let g:neocomplcache_enable_at_startup=1
+
 " windows mount
 "autocmd BufNewFile,BufRead /mnt/* set nofsync
 "autocmd BufNewFile,BufRead /opt/* set nofsync
