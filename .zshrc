@@ -86,6 +86,10 @@ setopt list_packed
 setopt nolistbeep
 
 setopt magic_equal_subst
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
 # 履歴
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
