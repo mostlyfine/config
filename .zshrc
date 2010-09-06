@@ -129,6 +129,7 @@ alias vv="vim ~/.vimrc"
 alias vz="vim ~/.zshrc"
 alias vc="vim ~/changelog"
 alias g="git"
+alias r="rails"
 
 ## for rails
 alias sc="./script/console -s"
