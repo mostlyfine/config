@@ -85,6 +85,7 @@ setopt list_packed
 # 補完時にビープ音をならさない
 setopt nolistbeep
 
+setopt magic_equal_subst
 # 履歴
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
