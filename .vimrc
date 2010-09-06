@@ -195,6 +195,7 @@ autocmd FileType ruby,eruby setlocal makeprg=ruby\ -c\ %
 autocmd FileType ruby,eruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType ruby,eruby setlocal formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
 autocmd FileType ruby,eruby setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
+autocmd FileType ruby,eruby setlocal dictionary=$HOME/.vim/dict/ruby187.dict
 
 " changelog
 autocmd BufNew,BufRead *.changelog setlocal filetype=changelog
