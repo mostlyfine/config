@@ -21,7 +21,7 @@ inoremap <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
 
 " window --------------------------------------------------
 set guioptions+=m         " メニュー表示
-set guioptions-=T         " ツールバー非表示
+set guioptions+=T         " ツールバー表示
 set columns=110           " ウィンドウ幅
 set lines=150             " ウィンドウ高さ
 set guicursor=a:blinkon0  " カーソルを点滅させない
