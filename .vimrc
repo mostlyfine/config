@@ -62,11 +62,7 @@ set encoding=utf-8                " デフォルトエンコーディング
 set fileencoding=utf-8            " デフォルトのファイルエンコーディング
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932 " vimが表示できるエンコードのリスト
 
-if has('win32') && has('kaoriya')
-  set ambiwidth=auto
-else
-  set ambiwidth=double              " 全角記号文字を半角扱いしない
-endif
+set ambiwidth=single              " ASCIIと同じ文字幅
 
 " search
 set wrapscan                        " 検索で最終行まで行ったら先頭に戻る
