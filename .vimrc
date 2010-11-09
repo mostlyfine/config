@@ -214,11 +214,12 @@ let php_sql_query=1
 let php_htmlInStrings=1
 let php_noShortTags=1
 let php_folding=0
-autocmd BufNewFile,BufRead *.thml set filetype=php
-autocmd BufNewFile,BufRead *.ctp set filetype=php
+autocmd BufNewFile,BufRead *.thml setlocal filetype=php
+autocmd BufNewFile,BufRead *.ctp setlocal filetype=php
 autocmd FileType php setlocal makeprg=php\ -l\ %
 autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php setlocal dictionary=$HOME/.vim/dict/php.dict
+autocmd FileType php :compiler php
 
 " cucumber
 autocmd BufNewFile,BufRead *.feature set filetype=ruby
