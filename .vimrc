@@ -221,6 +221,12 @@ autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php setlocal dictionary=$HOME/.vim/dict/php.dict
 autocmd FileType php :compiler php
 
+" perl
+autocmd BufNewFile,BufRead *.tt,*.cfm setlocal filetype=html
+autocmd BufNewFile,BufRead *.t setlocal filetype=perl
+autocmd FileType perl :setlocal dictionary=$HOME/.vim/dict/perl_functions.dict
+autocmd FileType perl :compiler perl
+
 " cucumber
 autocmd BufNewFile,BufRead *.feature set filetype=ruby
 
