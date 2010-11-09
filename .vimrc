@@ -185,12 +185,13 @@ filetype on
 filetype indent on  " ファイルタイプによるインデント設定
 filetype plugin on  " ファイルタイプごとのプラグイン読み込み
 
+autocmd FileType ruby,eruby,php,perl setlocal formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
+autocmd FileType ruby,eruby,php,perl setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
+
 " ruby
 autocmd FileType ruby,eruby setlocal tabstop=2 shiftwidth=2
 autocmd FileType ruby,eruby setlocal makeprg=ruby\ -c\ %
 autocmd FileType ruby,eruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd FileType ruby,eruby setlocal formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
-autocmd FileType ruby,eruby setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
 autocmd FileType ruby,eruby setlocal dictionary=$HOME/.vim/dict/ruby187.dict
 
 " changelog
