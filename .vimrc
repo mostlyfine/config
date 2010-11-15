@@ -162,6 +162,14 @@ nnoremap gc `[v`]
 vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
 
+" カーソルを一個左に戻す
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap <> <><Left>
+
 " command -----------------------------------------------------------
 
 " changelog grep
