@@ -22,8 +22,11 @@ elseif has('gui_gnome')
 endif
 
 " keymap --------------------------------------------------
-" ESC押したときに自動的に IME OFF
-inoremap <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
+" insertモードを抜けるとIME OFF
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0 imsearch=0<CR>
 
 " window --------------------------------------------------
 set guioptions+=m         " メニュー表示
