@@ -43,6 +43,7 @@ set shellslash                  " ディレクトリの区切り文字に/指定
 "endif
 
 " Explore
+set browsedir=buffer              " 初期ディレクトリ
 let g:netrw_hide=1                " 非表示
 let g:netrw_list_hide='^.*.swp'   " swpを非表示
 let g:netrw_liststyle=1           " 詳細表示
@@ -101,11 +102,11 @@ vnoremap * y/<C-r>0<CR>
 " visual mode word move
 vnoremap v w
 
-" help
-nnoremap <C-h> :help<Space>
+" カーソル下のキーワードをヘルプで引く
+nnoremap <C-h> :<C-v>help<Space><C-r><C-w><Enter>
 
-" grep
-nnoremap <C-g> :vimgrep<Space>
+" カーソル下のキーワードをgrepする
+nnoremap <C-g> :<C-v>vimgrep<Space><C-r><C-w><Space>
 
 " 検索語を画面中央に
 nmap n nzz
