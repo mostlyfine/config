@@ -1,5 +1,11 @@
 colorscheme xoria256
 
+" color ---------------------------------------------------
+if has('multi_byte_ime')
+  highlight Cursor guifg=NONE guibg=Green
+  highlight CursorIM guifg=NONE guibg=Purple
+endif
+
 " font ----------------------------------------------------
 if has('win32')
 "   Windows用
