@@ -135,6 +135,9 @@ nnoremap <S-Space> :bp<CR>
 nnoremap <Left> :bp<CR>
 nnoremap <Right> :bn<CR>
 nnoremap <Down> :ls<CR>
+nnoremap <F2> :bp<CR>
+nnoremap <F3> :bn<CR>
+nnoremap <F4> :ls<CR>
 
 " emacs like key
 cnoremap <C-a> <Home>
