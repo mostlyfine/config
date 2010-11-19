@@ -247,6 +247,9 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 " other -------------------------------------------------------------
 
+" 挿入モード時、pasteオプションを解除する
+autocmd InsertLeave * set nopaste
+
 " 挿入モード時ステータスラインの色を変える
 autocmd InsertEnter * highlight StatusLine ctermbg=red guibg=red
 autocmd InsertLeave * highlight StatusLine ctermbg=darkgray guibg=darkgray
