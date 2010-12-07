@@ -2,6 +2,7 @@ require 'rubygems'
 require 'pp'
 require 'wirble'
 require 'irb/completion'
+require 'net-http-spy'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:AUTO_INDENT] = true
