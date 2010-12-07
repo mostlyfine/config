@@ -68,7 +68,7 @@ function! s:SetupRspecVim()
 endfunction
  
 " TODO script localにする
-autocmd BufRead,BufNewFile *_spec.rb call s:SetupRspecVim()
-autocmd BufRead,BufNewFile *.feature call s:SetupCucumberVim()
+autocmd BufRead,BufEnter *_spec.rb call s:SetupRspecVim()
+autocmd BufRead,BufEnter *.feature call s:SetupCucumberVim()
 
 
