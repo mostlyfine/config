@@ -117,6 +117,7 @@ zstyle ':completion:*' list-colors ''
 export GEM_HOME=$HOME/.gem/ruby/1.8 #/var/lib/gems/1.8
 export PATH=$PATH:$GEM_HOME/bin
 export RUBYOPT=rubygems
+export RSPEC=true
 
 # alias
 alias v="vi"
