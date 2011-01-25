@@ -114,8 +114,8 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ''
 
 # Ruby
-export GEM_HOME=/var/lib/gems/1.8
-export PATH=$PATH:$GEM_HOME/bin:~/.gem/ruby/1.8/bin
+export GEM_HOME=$HOME/.gem/ruby/1.8 #/var/lib/gems/1.8
+export PATH=$PATH:$GEM_HOME/bin
 export RUBYOPT=rubygems
 
 # alias
