@@ -106,7 +106,7 @@ vnoremap v w
 nnoremap <C-h> :<C-v>help<Space><C-r><C-w><Enter>
 
 " カーソル下のキーワードをgrepする
-nnoremap <C-g> :<C-v>vimgrep<Space><C-r><C-w><Space>
+nnoremap <C-g> :<C-v>vimgrep<Space>/<C-r><C-w>/j<Space>
 
 " 検索語を画面中央に
 nmap n nzz
