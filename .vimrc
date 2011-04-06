@@ -62,7 +62,7 @@ set termencoding=utf-8            " ターミナルで使われるエンコー�
 set encoding=utf-8                " デフォルトエンコーディング
 set fileencoding=utf-8            " デフォルトのファイルエンコーディング
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp-2,euc-jisx0213,euc-jp,cp932 " vimが表示できるエンコードのリスト
-set fileformats=mac,unix,dos      " ファイルの改行タイプ指定
+set fileformats=unix,mac,dos      " ファイルの改行タイプ指定
 
 set ambiwidth=double              " ASCIIと同じ文字幅
 
@@ -168,12 +168,12 @@ vnoremap gc :<C-u>normal gc<Enter>
 onoremap gc :<C-u>normal gc<Enter>
 
 " カーソルを一個左に戻す
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap <> <><Left>
+"inoremap {} {}<Left>
+"inoremap [] []<Left>
+"inoremap () ()<Left>
+"inoremap "" ""<Left>
+"inoremap '' ''<Left>
+"inoremap <> <><Left>
 
 " command -----------------------------------------------------------
 
@@ -198,17 +198,8 @@ filetype on
 filetype indent on  " ファイルタイプによるインデント設定
 filetype plugin on  " ファイルタイプごとのプラグイン読み込み
 
-autocmd FileType ruby,eruby,php,perl setlocal formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
-autocmd FileType ruby,eruby,php,perl setlocal formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
-
-" ruby
-autocmd FileType ruby,eruby setlocal tabstop=2 shiftwidth=2
-autocmd FileType ruby,eruby setlocal makeprg=ruby\ -c\ %
-autocmd FileType ruby,eruby setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd FileType ruby,eruby setlocal dictionary=$HOME/.vim/dict/ruby187.dict
-
 " changelog
-autocmd BufNew,BufRead *.changelog setlocal filetype=changelog
+autocmd BufNewFile,BufNew,BufRead *.changelog,changelog setlocal filetype=changelog
 let g:changelog_timeformat="%Y-%m-%d"
 let g:changelog_username="mostlyfine@gmail.com"
 
@@ -222,23 +213,13 @@ autocmd FileType java setlocal dictionary=$HOME/.vim/dict/j2se14.dict
 " git
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal filetype=git
 
-" php
-let php_sql_query=1
-let php_htmlInStrings=1
-let php_noShortTags=1
-let php_folding=0
-autocmd BufNewFile,BufRead *.thml setlocal filetype=php
-autocmd BufNewFile,BufRead *.ctp setlocal filetype=php
-autocmd FileType php setlocal makeprg=php\ -l\ %
-autocmd FileType php setlocal errorformat=%m\ in\ %f\ on\ line\ %l
-autocmd FileType php setlocal dictionary=$HOME/.vim/dict/php.dict
-autocmd FileType php :compiler php
-
 " perl
 autocmd BufNewFile,BufRead *.tt,*.cfm setlocal filetype=html
-autocmd BufNewFile,BufRead *.t setlocal filetype=perl
-autocmd FileType perl :setlocal dictionary=$HOME/.vim/dict/perl_functions.dict
-autocmd FileType perl :compiler perl
+autocmd BufNewFile,BufRead *.t,*.cgi setlocal filetype=perl
+
+" php
+autocmd BufNewFile,BufRead *.thml setlocal filetype=php
+autocmd BufNewFile,BufRead *.ctp setlocal filetype=php
 
 " cucumber
 autocmd BufNewFile,BufRead *.feature set filetype=ruby
@@ -303,8 +284,4 @@ let g:neocomplcache_enable_at_startup=1             " neocomplcache有効化
 let g:neocomplcache_enable_smart_case=1             " 大文字小文字を無視
 let g:neocomplcache_enable_camel_case_completion=0  " camel case無効
 let g:neocomplcache_enable_underbar_completion=1    " _区切りの補完を有効
-
-" windows mount
-"autocmd BufNewFile,BufRead /mnt/* set nofsync
-"autocmd BufNewFile,BufRead /opt/* set nofsync
 

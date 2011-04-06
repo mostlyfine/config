@@ -1,3 +1,5 @@
+compiler ruby
+
 " RSpecのテスト実行
 function! Specrun()
   let rails_spec_pat = 'spec/\(models\|controllers\|views\|helpers\)/.*_spec\.rb$'
@@ -11,7 +13,7 @@ autocmd BufRead,BufNewFile *_spec.rb :command! Specrun :call Specrun()
 
 function! s:RunRspec (opts)
   let rails_spec_path_re = '\<spec/\(models\|controllers\|views\|helpers\)/.*_spec\.rb$'
- 
+
   if( expand('%') =~ rails_spec_path_re && filereadable('script/spec') )
 "let command = '!ruby script/spec '
     let spec_command = '!spec '
@@ -23,7 +25,7 @@ function! s:RunRspec (opts)
   endif
   exe spec_command . a:opts . ' ' . expand('%:p')
 endfunction
- 
+
 function! s:RunCucumber (feature)
   if( filereadable('Rakefile') )
     let command = '!rake features FEATURE='
@@ -34,41 +36,47 @@ function! s:RunCucumber (feature)
   endif
   exe command . a:feature
 endfunction
- 
+
 function! <SID>RunBehavior ()
   call s:RunRspec('--format=n --color')
 endfunction
- 
+
 function! <SID>RunExample ()
   call s:RunRspec('--format=n --color --line ' . line('.'))
 endfunction
- 
+
 function! <SID>RunScinario ()
   call s:RunCucumber(expand('%:p') . ':' . line('.'))
 endfunction
- 
+
 function! <SID>RunFeature ()
   call s:RunCucumber(expand('%:p'))
 endfunction
- 
+
 function! s:SetupCucumberVim ()
   command! RunFeature call <SID>RunFeature()
   command! RunScinario call <SID>RunScinario()
- 
+
   nnoremap -fe :RunFeature<CR>
   nnoremap -sc :RunScinario<CR>
 endfunction
- 
+
 function! s:SetupRspecVim()
   command! RunExample call <SID>RunExample()
   command! RunBehavior call <SID>RunBehavior()
- 
+
   nnoremap -ex :RunExample<CR>
   nnoremap -bh :RunBehavior<CR>
 endfunction
- 
+
 " TODO script localにする
 autocmd BufRead,BufEnter *_spec.rb call s:SetupRspecVim()
 autocmd BufRead,BufEnter *.feature call s:SetupCucumberVim()
 
-
+set tabstop=2
+set shiftwidth=2
+set formatoptions-=r " 挿入モードで改行したときにコメントを自動挿入しない
+set formatoptions-=o " ノーマルモードでoしたときにコメントを自動挿入しない
+set makeprg=ruby\ -c\ %
+set errorformat=%m\ in\ %f\ on\ line\ %l
+set dictionary=$HOME/.vim/dict/ruby187.dict
