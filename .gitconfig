@@ -1,0 +1,29 @@
+[core]
+    editor = vim
+    pager = lv -c
+    excludesfile = $HOME/.gitconfig
+[user]
+    name = Seiji Sawayanagi
+    email = mostlyfine@gmail.com
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+[alias]
+    b = branch
+    ba = branch -a
+    co = checkout
+    ci = commit -v
+    st = status
+    up = pull --rebase
+    pr = pull --rebase
+    url = config --get remote.origin.url
+    l = log
+    ls = log --stat
+    lp = log -p
+    h = log --oneline --graph
+    graph = log --graph --date=short --pretty=format:'%Cblue%h %cd %Cgreen%cn %Creset%s'
+
+[push]
+	default = matching
