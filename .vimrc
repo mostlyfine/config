@@ -51,7 +51,7 @@ imap <C-j> <Esc>
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
-vnoremap j gk
+vnoremap j gj
 
 nmap n nzz
 nmap N Nzz
