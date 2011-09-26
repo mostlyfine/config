@@ -140,3 +140,5 @@ alias sg="./script/generate"
 # perl
 export PERL_CPANM_OPT="--local-lib=~/extlib"
 export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
+export PERM_MM_OPT="INSTALL_BASE=$HOME/perl5"
+export PATH=$PATH:$HOME/extlib/bin
