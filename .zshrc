@@ -1,4 +1,5 @@
 autoload -U compinit
+bindkey -e
 compinit
 
 if [ $(uname -p | wc -c) -le $(uname -m | wc -c) ]; then
@@ -12,30 +13,27 @@ export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vi
 export CTAGS="--langmap=RUBY:.rb.yml -R"
 export PATH=$PATH:$HOME/local/bin
-# プロンプトの設定
+
+setopt auto_cd
+setopt auto_pushd
+setopt correct
+setopt list_packed
+setopt nolistbeep
+setopt magic_equal_subst
+setopt extended_history
+setopt share_history
+setopt hist_ignore_dups
+
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+HISTFILE=$HOME/.zsh-history
+HISTSIZE=100000
+SAVEHIST=100000
+
 PROMPT="%% "
 RPROMPT="[%/]"
 PROMPT2="%_%%"
 SPROMPT="%r is corrent? [n,y,a,e]: "
 
-#case ${UID} in
-#0)
-#    PROMPT="%B%{31m%]]}%/#%{[m%]]}%b "
-#    PROMPT2="%B%{^[[31m%]]}%_#%{^[[m%]]}%b "
-#    SPROMPT="%B%{^[[31m%]]}%r is correct? [n,y,a,e]:%{^[[m%]]}%b "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#    PROMPT="%{^[[37m%]]}${HOST%%.*} ${PROMPT}"
-#    ;;
-#*)
-#    PROMPT="%{^[[31m%]]}%/%%%{^[[m%]]} "
-#    PROMPT2="%{^[[31m%]]}%_%%%{^[[m%]]} "
-#    SPROMPT="%{^[[31m%]]}%r is correct? [n,y,a,e]:%{^[[m%]]} "
-#    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#    PROMPT="%{^[[37m%]]}${HOST%%.*} ${PROMPT}"
-#    ;;
-#esac 
-
-# ターミナルのタイトル
 case "${TERM}" in
     kterm*|xterm)
     precmd() {
@@ -44,7 +42,6 @@ case "${TERM}" in
     ;;
 esac
 
-# カラー表示
 autoload colors
 case "${TERM}" in
     kterm*|xterm*)
@@ -63,6 +60,10 @@ esac
 case "${OSTYPE}" in
     linux*)
         export GIT_PAGER='less -RE'
+        alias ls="ls --color=auto"
+        ;;
+    darwin*)
+        alias ls="ls -G"
         ;;
 esac
 
@@ -76,47 +77,18 @@ precmd () {
 }
 RPROMPT="[%1(v|%F{green}%1v%f|):%/]"
 
-# ディレクトリ名でcd
-setopt auto_cd
-
-# 移動したディレクトリを記録
-setopt auto_pushd
-
-# コマンド入力ミス補正
-setopt correct
-
-# 補完候補をつめて表示
-setopt list_packed
-
-# 補完時にビープ音をならさない
-setopt nolistbeep
-
-setopt magic_equal_subst
-
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
-
-# 履歴
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt extended_history
-setopt share_history
-setopt hist_ignore_dups
 autoload history-search-end
+
 #function history-all { history -E 1}
 #zle -N history-beginning-search-backward-end history-search-end
 #zle -N history-beginning-search-forward-end history-search-end
 #bindkey '^P' history-beginning-search-backword
 #bindkey '^N' history-beginning-search-backword
-bindkey -e
 
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# 補完候補をカーソル選択
 zstyle ':completion:*:default' menu select=1
-
-# 補完候補をカラー表示
 zstyle ':completion:*' list-colors ''
 
 # Ruby
@@ -125,15 +97,16 @@ export PATH=$PATH:$GEM_HOME/bin
 export RUBYOPT=rubygems
 export RSPEC=true
 
+# perl
+export PERL_CPANM_OPT="--local-lib=~/extlib"
+export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
+export PERM_MM_OPT="INSTALL_BASE=$HOME/perl5"
+export PATH=$PATH:$HOME/extlib/bin
+
 # alias
 alias v="vi"
 alias where="command -v"
 alias j="jobs -l"
-if [ $KERNEL = "linux" ]; then
-  alias ls="ls --color=auto"
-elif [ $KERNEL = "darwin" ]; then
-  alias ls="ls -G"
-fi
 alias ll="ls -lh"
 alias lv="lv -c"
 alias vv="vim ~/.vimrc"
@@ -149,9 +122,3 @@ fi
 alias sc="./script/console -s"
 alias ss="./script/server"
 alias sg="./script/generate"
-
-# perl
-export PERL_CPANM_OPT="--local-lib=~/extlib"
-export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
-export PERM_MM_OPT="INSTALL_BASE=$HOME/perl5"
-export PATH=$PATH:$HOME/extlib/bin
