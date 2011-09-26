@@ -4,6 +4,7 @@ filetype indent on
 filetype plugin on
 colorscheme desert
 
+set background=light
 set nocompatible
 set laststatus=2
 set cmdheight=2
@@ -12,15 +13,18 @@ set autoread
 set hidden
 set backspace=indent,eol,start
 set confirm
-set vb t_vb=
+set visualbell
+set t_vb=
 
 set showcmd
 set showmatch
 set number
 set display=uhex
 set nolist
+set notitle
 set noruler
 set formatoptions+=mM
+set formatoptions-=ro
 set shellslash
 
 set autoindent
@@ -29,6 +33,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
+set tags+=~/tags
 
 set termencoding=utf-8
 set encoding=utf-8
@@ -45,6 +50,7 @@ set hlsearch
 set wildmenu
 set wildmode=full
 set complete+=k
+set completeopt=menu,preview,menuone
 
 imap <C-j> <Esc>
 
@@ -71,6 +77,7 @@ nnoremap <Right> :bnext<CR>
 
 autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal filetype=git
 autocmd BufNewFile,BufNew,BufRead *.changelog,changelog setlocal filetype=changelog
+autocmd BufEnter * execute ":lcd " . escape(expand("%:p:h"), " #\\")
 autocmd InsertEnter * highlight StatusLine ctermbg=red guibg=red
 autocmd InsertLeave * highlight StatusLine ctermbg=darkgray guibg=darkgray
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
@@ -80,8 +87,6 @@ highlight IgnoreSpace ctermbg=red guibg=red
 autocmd Colorscheme * highlight IgnoreSpace ctermbg=red guibg=red
 autocmd VimEnter,WinEnter * match IgnoreSpace /\s\+$\|　/
 
-set formatoptions-=r
-set formatoptions-=o
 set errorformat=%m\ in\ %f\ on\ line\ %l
 
 " perl
