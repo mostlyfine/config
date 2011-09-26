@@ -1,6 +1,12 @@
-
 autoload -U compinit
 compinit
+
+if [ $(uname -p | wc -c) -le $(uname -m | wc -c) ]; then
+  PROCESSOR=$(uname -p);
+else
+  PROCESSOR=$(uname -m);
+fi
+KERNEL=$(uname -s | tr "[A-Z]" "[a-z]")
 
 export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vi
@@ -123,7 +129,11 @@ export RSPEC=true
 alias v="vi"
 alias where="command -v"
 alias j="jobs -l"
-alias ls="ls --color"
+if [ $KERNEL = "linux" ]; then
+  alias ls="ls --color=auto"
+elif [ $KERNEL = "darwin" ]; then
+  alias ls="ls -G"
+fi
 alias ll="ls -lh"
 alias lv="lv -c"
 alias vv="vim ~/.vimrc"
@@ -131,6 +141,9 @@ alias vz="vim ~/.zshrc"
 alias vc="vim ~/changelog"
 alias g="git"
 alias r="rails"
+if [ -e `which colordiff` ]; then
+  alias diff="colordiff"
+fi
 
 ## for rails
 alias sc="./script/console -s"
