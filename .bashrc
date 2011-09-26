@@ -29,7 +29,7 @@ alias dh="dh -h"
 alias diff="colordiff"
 
 # ruby
-export GEM_HOME=$HOME/.gem/ruby/1.9 #/var/lib/gems/1.9
+export GEM_HOME=$HOME/.gem/ruby/1.9.1 #/var/lib/gems/1.9
 export PATH=$PATH:$GEM_HOME/bin
 export RUBYOPT=rubygems
 export RSPEC=true
