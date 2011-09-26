@@ -1,3 +1,11 @@
-.vim/GetLatest/Installed/*
-.vim/.netrwhist
+*~
+*#
+TAGS
 tags
+.swp
+*.swp
+*.swo
+*.bak
+*.pid
+.DS_Store
+nohup.out
