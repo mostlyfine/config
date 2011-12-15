@@ -19,10 +19,10 @@
     up = pull --rebase
     pr = pull --rebase
     url = config --get remote.origin.url
-    l = log
-    ls = log --stat
-    lp = log -p
-    h = log --oneline --graph
+    l = log --decorate
+    ls = log --stat --decorate
+    lp = log -p --decorate
+    h = log --oneline --graph --decorate
     graph = log --graph --date=short --pretty=format:'%Cblue%h %cd %Cgreen%cn %Creset%s'
 
 [push]
