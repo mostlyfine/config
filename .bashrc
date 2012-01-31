@@ -18,6 +18,15 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# ssh auto passphase input
+if [ -z "`ps -u $USER | grep ssh-agent`" ]; then
+  ssh-agent > ~/.ssh/env
+fi
+
+if [ -f ~/.ssh/env ]; then
+  source ~/.ssh/env > /dev/null
+fi
+
 # User specific aliases and functions
 alias ls="ls --color=auto -h"
 alias ll="ls -ltah"
