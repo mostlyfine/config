@@ -13,7 +13,7 @@ export LANG=ja_JP.UTF-8
 export EDITOR=/usr/bin/vi
 export CTAGS="--langmap=RUBY:.rb.yml -R"
 export PATH=$PATH:$HOME/local/bin
-export GREP_OPTIONS="--color=auto -r"
+export GREP_OPTIONS="--color=auto -r -n"
 export GREP_COLOR="1;33"
 
 setopt auto_cd
