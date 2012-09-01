@@ -39,7 +39,9 @@ alias g="git"
 alias grep="grep --color"
 alias du="du -h"
 alias dh="dh -h"
-alias diff="colordiff"
+if [ -f /usr/local/bin/colordiff ];then
+  alias diff="colordiff"
+fi
 
 # ruby
 export GEM_HOME=$HOME/.gem/ruby/1.9.1 #/var/lib/gems/1.9
