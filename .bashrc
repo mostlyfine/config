@@ -42,6 +42,11 @@ alias dh="dh -h"
 if [ -f /usr/local/bin/colordiff ];then
   alias diff="colordiff"
 fi
+alias dstat-full='dstat -tclmdrnps'
+alias dstat-mem='dstat -tclm'
+alias dstat-cpu='dstat -tclr'
+alias dstat-net='dstat -tclnd'
+alias dstat-disk='dstat -tcldr'
 
 # ruby
 export GEM_HOME=$HOME/.gem/ruby/1.9.1 #/var/lib/gems/1.9
