@@ -30,7 +30,11 @@ fi
 # User specific aliases and functions
 alias ls="ls --color=auto -h"
 alias ll="ls -ltah"
-alias lv="lv -c"
+if [ -f /usr/bin/lv ]; then
+  alias lv="vi -R"
+else
+  alias lv="lv -c"
+fi
 alias g="git"
 alias grep="grep --color"
 alias du="du -h"
